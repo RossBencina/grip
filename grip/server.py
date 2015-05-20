@@ -365,6 +365,7 @@ def _read_file_or_404(filename, read_as_text=True):
     mode = 'rt' if read_as_text else 'rb'
     encoding = 'utf-8' if read_as_text else None
     try:
+        os.system("grip_hook.py " + filename)
         with io.open(filename, mode, encoding=encoding) as f:
             return f.read()
     except IOError as ex:
